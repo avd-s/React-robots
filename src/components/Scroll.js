@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Scroll = (props) => {
+const Scroll = (props) => {                                  // Sticky Searchbox
   return (
     <div style={{ overflow: 'scroll', border: '5px solid black', height: '800px'}}>
       {props.children}
