@@ -4,7 +4,7 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import './App.css';
 
-class App extends Component {
+class App extends Component {                             // React state
   constructor() {
     super()
     this.state = {
@@ -13,19 +13,19 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount() {                                                   // Dynamically update state
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response=> response.json())
       .then(users => {this.setState({ robots: users})});
   }
 
-  onSearchChange = (event) => {
+  onSearchChange = (event) => {                                             // To find the searched value
     this.setState({ searchfield: event.target.value })
   }
 
   render() {
     const { robots, searchfield } = this.state;
-    const filteredRobots = robots.filter(robot =>{
+    const filteredRobots = robots.filter(robot =>{                           // Filter list according to search value
       return robot.name.toLowerCase().includes(searchfield.toLowerCase());
     })
     return !robots.length ?
@@ -34,7 +34,7 @@ class App extends Component {
         <div className='tc'>
           <h1 className='f1'>RoboFriends</h1>
           <SearchBox searchChange={this.onSearchChange}/>
-          <Scroll>
+          <Scroll>                                                              // Sticky Searchbox 
             <CardList robots={filteredRobots} />
           </Scroll>
         </div>
