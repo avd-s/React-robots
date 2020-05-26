@@ -31,7 +31,7 @@ class App extends Component {                             // React state
     return !robots.length ?
       <h1>Loading</h1> :
       (
-        <div className='tc'>
+        <div className='tc'>                                                   // Tachyons Class styling
           <h1 className='f1'>RoboFriends</h1>
           <SearchBox searchChange={this.onSearchChange}/>
           <Scroll>                                                              // Sticky Searchbox 
